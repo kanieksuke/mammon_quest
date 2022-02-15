@@ -1,24 +1,52 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+|Column|Type|Options|
+|------|----|-------|
+|email|string|null: false, unique: true|
+|encrypted_password|string|null: false|
+|nickname|string|null: false|
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_one :target
 
-* Configuration
+## targets テーブル
 
-* Database creation
+|Column|Type|Options|
+|------|----|-------|
+|max_hp|integer|null: false|
+|max_mp|integer|null: false|
+|current_hp|integer|null: false|
+|current_mp|integer|null: false|
+|user|references|null: false, foreign_key: true|
 
-* Database initialization
+### Association
 
-* How to run the test suite
+- belongs_to :user
+- has_one :budget
+- has_many :dates
 
-* Services (job queues, cache servers, search engines, etc.)
+## budgets テーブル
 
-* Deployment instructions
+|Column|Type|Options|
+|------|----|-------|
+|attack|integer|null: false|
+|resist|integer|null: false|
+|target|references|null: false, foreign_key: true|
 
-* ...
+### Association
+
+- belongs_to :target
+
+## dates テーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|attack_date|date|null: false|
+|target|references|null: false, foreign_key: true|
+
+### Association
+
+- belongs_to :target
