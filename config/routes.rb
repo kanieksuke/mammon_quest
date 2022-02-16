@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   devise_scope :user do
     root :to => "devise/sessions#new"
   end
+  resources :targets, only: [:new, :create]
 end
