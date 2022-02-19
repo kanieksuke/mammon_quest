@@ -28,7 +28,7 @@ class TargetsController < ApplicationController
 
   def move_to_new
     if @target == nil
-      redirect_to action: :new
+      render action: :new
     end
   end
 end
