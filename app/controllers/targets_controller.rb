@@ -11,7 +11,13 @@ class TargetsController < ApplicationController
     @target.current_hp = @target.max_hp
     @target.current_mp = 0
     @target.save
-    redirect_to new_target_budget_path(@target.id)
+    redirect_to new_target_budgets_path(@target)
+  end
+
+  def destroy
+    target = Target.find(params[:id])
+    target.destroy
+    redirect_to new_target_path
   end
 
   private

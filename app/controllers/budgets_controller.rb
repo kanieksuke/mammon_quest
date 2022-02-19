@@ -1,5 +1,6 @@
 class BudgetsController < ApplicationController
   def new
+    @target = Target.find(params[:target_id])
     @budget = Budget.new
   end
 
