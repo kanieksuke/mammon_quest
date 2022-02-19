@@ -1,4 +1,5 @@
 class TargetsController < ApplicationController
+  before_action :move_to_new
   def index
   end
 
@@ -23,5 +24,11 @@ class TargetsController < ApplicationController
   private
   def target_params
     params.require(:target).permit(:max_hp, :max_mp).merge(user_id: current_user.id)
+  end
+
+  def move_to_new
+    if @target == nil
+      redirect_to action: :new
+    end
   end
 end

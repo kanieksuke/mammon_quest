@@ -1,17 +1,5 @@
 # README
 
-## users テーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|email|string|null: false, unique: true|
-|encrypted_password|string|null: false|
-|nickname|string|null: false|
-
-### Association
-
-- has_one :target
-
 ## targets テーブル
 
 |Column|Type|Options|
@@ -20,11 +8,9 @@
 |max_mp|integer|null: false|
 |current_hp|integer|null: false|
 |current_mp|integer|null: false|
-|user|references|null: false, foreign_key: true|
 
 ### Association
 
-- belongs_to :user
 - has_one :budget
 - has_many :dates
 
@@ -34,6 +20,8 @@
 |------|----|-------|
 |attack|integer|null: false|
 |resist|integer|null: false|
+|attack_base|integer|null: false|
+|resist_base|integer|null: false|
 |target|references|null: false, foreign_key: true|
 
 ### Association

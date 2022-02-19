@@ -19,4 +19,5 @@
     <%= f.submit "1日に使える金額を決めよう" %>
   </div>
 <% end %>
+<%= link_to "ユーザーを登録し直す※ブラウザの「戻る」は使用しないでください", destroy_user_session_path(@target.id), method: :delete %>
 

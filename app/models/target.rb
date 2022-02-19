@@ -1,4 +1,3 @@
 class Target < ApplicationRecord
-  has_one :budget
-  belongs_to :user
+  has_one :budget, dependent: :destroy
 end
